@@ -1,25 +1,69 @@
 import React, {useState} from 'react'
 
-const AddBlogForm = () => {
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
-  const [imageUrl, setImageUrl] = useState('')
+const AddBlogForm = ({addPost, blogPosts}) => {
+  // const [title, setTitle] = useState('')
+  // const [description, setDescription] = useState('')
+  // const [imageUrl, setImageUrl] = useState('')
 
-  function handleTitleChange(e){
-    setTitle(e.target.value)
-  }
+  const [formData, setFormData] = useState({
+    title : "",
+    description : "",
+    imageUrl : ""
+  })
 
-  function handleDescriptonChange(e){
-    setDescription(e.target.value)
-  }
+  // console.log(formData.title)
 
-  function handleImageChange(e){
-    setImageUrl(e.target.value)
-  }
+// function setFormData
+function handleOnchange(e){
+  let name = e.target.name
+  let value = e.target.value
+
+  setFormData({
+    ...formData, [name] : value
+  })
+
+  // find away to get title
+  //  find away to get description
+  //   find away to get imageUrl
+
+
+}
+
+  // function handleTitleChange(e){
+  //   setTitle(e.target.value)
+  // }
+
+  // function handleDescriptonChange(e){
+  //   setDescription(e.target.value)
+  // }
+
+  // function handleImageChange(e){
+  //   setImageUrl(e.target.value)
+  // }
 
   function handleSubmit(e){
     e.preventDefault()
+
+    // let formData = {
+    //   title : title,
+    //   description: description,
+    //   imageUrl : imageUrl,
+    //   id : blogPosts.length + 1
+    // }
+
+
+    addPost(formData)
+
+    setFormData({
+    title : "",
+    description : "",
+    imageUrl : ""
+  })
+
   }
+
+  
+
 
   
   return (
@@ -34,33 +78,37 @@ onSubmit={handleSubmit}>
     <input
      type="text"
       id="title" 
+      name='title'
       className="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
        placeholder="Enter post title" 
        required
-       value={title}
-       onChange={handleTitleChange}/>
+       value={formData.title}
+       onChange={handleOnchange}/>
   </div>
   <div className="mb-5">
     <label htmlFor="description" className="block mb-2.5 text-sm font-medium text-heading">Description</label>
     <input 
     type="text" 
-    id="description" 
+    id="description"
+    name='description' 
     className="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" 
     placeholder="Enter description" 
     required 
-    value={description}
-    onChange={handleDescriptonChange}/>
+    value={formData.description}
+    onChange={handleOnchange}/>
   </div>
   <div className="mb-5">
     <label htmlFor="imageUrl" className="block mb-2.5 text-sm font-medium text-heading">Image URL</label>
     <input 
     type="text" 
-    id="imageUrl" 
+    id="imageUrl"
+    name='imageUrl' 
     className="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-sm focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" 
     placeholder="Enter image url" 
     required 
-    value={imageUrl}
-    onChange={handleImageChange}/>
+    value={formData.imageUrl}
+    onChange={handleOnchange}
+    />
   </div>
   
   <button 

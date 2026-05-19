@@ -41,3 +41,24 @@ setName => a function that is used to update the state(name)
 useState => define our initial state
 initial state can be of any data type e.g string, array, object, boolean
 
+<!-- controlled form component -->
+form inputs get their values from the state
+
+<!-- <input type="text" placeholder="Enter name....." value={name}> -->
+
+useEffect hook => React hook that enables function components to perform side effect. It allows execution of function after a component renders. It can be configured to run under specific conditions using dependecny array
+
+<!-- Scenarios where useEffect hook is applicable -->
+Making networj request
+Fecting data from remote api
+Setting timeout
+
+<!-- syntax -->
+
+useEffect(()=>{function to be execute, [dependency array]})
+
+
+without dependency array => Execution occurs anytime the rerenders
+when dependency array is empty => function is run once when the page loads
+with dependency array provided => Execution occurs when there is change to the dependency varable
+s

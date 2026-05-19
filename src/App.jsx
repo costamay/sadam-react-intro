@@ -8,11 +8,7 @@ import Footer from './components/Footer'
 import Blog from './components/Blog'
 import BlogList from './components/BlogList'
 import AddBlogForm from './components/AddBlogForm'
-
-function App() {
-
-const [blogPosts, setBlogPosts]= useState(
-  [
+let data =  [
   {
     id: 1,
     title: "Getting Started with React",
@@ -74,11 +70,19 @@ const [blogPosts, setBlogPosts]= useState(
     imageUrl: "https://miro.medium.com/v2/resize:fit:1400/1*E1jdYRKin1hraL67-cKALw.png"
   }
 ]
-)
+function App() {
+// state
+const [blogPosts, setBlogPosts]= useState(data)
+
+// function to add post
+function addPost(post){
+  setBlogPosts([post, ...blogPosts])
+}
+
   return (
     <>
     <Navbar/>
-    <AddBlogForm />
+    <AddBlogForm addPost = {addPost} blogPosts = {blogPosts}/>
     <BlogList blogPosts = {blogPosts}/>
     <Footer/>
     </>
