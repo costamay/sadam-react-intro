@@ -49,7 +49,7 @@ form inputs get their values from the state
 useEffect hook => React hook that enables function components to perform side effect. It allows execution of function after a component renders. It can be configured to run under specific conditions using dependecny array
 
 <!-- Scenarios where useEffect hook is applicable -->
-Making networj request
+Making network request
 Fecting data from remote api
 Setting timeout
 

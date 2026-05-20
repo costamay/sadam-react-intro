@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Counter = () => {
 
@@ -23,6 +23,18 @@ const Counter = () => {
     function handleDecrement(){
         setCount(count - 1)
     }
+
+    // useEffect(()=>{ 
+    //     // code to be executed
+    // }
+    //     , [
+    //         // dependency array
+    //     ]
+    // )
+
+    useEffect(() =>{
+        console.log("useEffect hook has been called: ", count)
+    },[count])
 
   return (
     <div className='text-center'>
