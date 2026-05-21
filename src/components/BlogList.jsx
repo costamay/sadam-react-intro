@@ -8,8 +8,6 @@ function BlogList({blogPosts}) {
     return <Blog key={post.id} post = {post}/>
   })
 
-  console.log(posts)
-
   return (
     <>
     <div className="grid gap-2  md:grid-cols-2 lg:grid-cols-3">
