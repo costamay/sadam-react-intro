@@ -17,7 +17,7 @@ const Home = () => {
     }
 
   return (
-    <button type="button" onClick={() => handleClick()}>Click Me</button>
+    <button  type="button" onClick={() => handleClick()}>Click Me</button>
   )
 }
 

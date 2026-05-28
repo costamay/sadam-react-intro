@@ -4,11 +4,16 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 import Navbar from './components/Navbar'
+import Services from './components/Services'
+import Contact from './components/Contact'
+import Home from './components/Home'
+import About from './components/About'
 import Footer from './components/Footer'
 import Blog from './components/Blog'
 import BlogList from './components/BlogList'
 import AddBlogForm from './components/AddBlogForm'
 import { ClipLoader } from "react-spinners";
+import { Routes, Route } from 'react-router-dom'
 
 const override = {
   display: "block",
@@ -73,6 +78,8 @@ if(isloading){
     <AddBlogForm addPost = {addPost} blogPosts = {blogPosts}/>
     <BlogList blogPosts = {blogPosts}/>
     <Footer/>
+
+     
     </>
   )
 }

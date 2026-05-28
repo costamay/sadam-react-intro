@@ -62,3 +62,9 @@ without dependency array => Execution occurs anytime the rerenders
 when dependency array is empty => function is run once when the page loads
 with dependency array provided => Execution occurs when there is change to the dependency varable
 s
+<!-- Client side routing -->
+React Router is a declarative routing library for React that enables developers to create single-page applications (SPAs) with dynamic, client-side navigation.
+
+BrowserRouter => wraps the entire application
+Routes => This ecloses all the route of the application
+Route => maps a single componet to url
