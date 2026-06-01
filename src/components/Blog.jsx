@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { userContext } from './context'
 
 let BASE_URL = "http://localhost:3000/post"
 
 function Blog({post}) {
+
+  // let postData = useContext(userContext)
+  // console.log("postData........................", postData)
 
   function handleClick(){
     alert(`This is ${post.title} that wil help us in ${post.description}`)

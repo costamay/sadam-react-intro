@@ -1,8 +1,13 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { userContext } from './context'
 import Blog from './Blog'
 
-function BlogList({blogPosts}) {
-  
+function BlogList() {
+  const { blogPosts } = useContext(userContext)
+
+  if(!blogPosts){
+    return <h1 className='text-center text-2xl font-bold text-heading'>No blog posts available</h1>
+  }
     
   let posts = blogPosts.map(function(post){
     return <Blog key={post.id} post = {post}/>

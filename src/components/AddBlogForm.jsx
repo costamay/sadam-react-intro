@@ -1,6 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
+import { userContext } from './context'
 
-const AddBlogForm = ({addPost, blogPosts}) => {
+const AddBlogForm = () => {
+  const { addPost, blogPosts } = useContext(userContext)
   // const [title, setTitle] = useState('')
   // const [description, setDescription] = useState('')
   // const [imageUrl, setImageUrl] = useState('')

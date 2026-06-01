@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -14,6 +14,7 @@ import BlogList from './components/BlogList'
 import AddBlogForm from './components/AddBlogForm'
 import { ClipLoader } from "react-spinners";
 import { Routes, Route } from 'react-router-dom'
+import { userContext } from './components/context'
 
 const override = {
   display: "block",
@@ -24,40 +25,41 @@ const override = {
 let BASE_URL = "http://localhost:3000/post"
 function App() {
 // state
-const [blogPosts, setBlogPosts]= useState()
-const [isloading, setIsloading] = useState(true)
-let [color, setColor] = useState("red");
+const { isloading, color } = useContext(userContext)
+// const [blogPosts, setBlogPosts]= useState()
+// const [isloading, setIsloading] = useState(true)
+// let [color, setColor] = useState("red");
 
-useEffect(() => {
-  setTimeout(()=>{
-    fetch(BASE_URL)
-  .then(res => res.json())
-  .then(data => {
-    setBlogPosts(data)
-    setIsloading(false)
-  })
-  .catch((e) => console.log(e))
-  }, 1000)
-}, [])
+// useEffect(() => {
+//   setTimeout(()=>{
+//     fetch(BASE_URL)
+//   .then(res => res.json())
+//   .then(data => {
+//     setBlogPosts(data)
+//     setIsloading(false)
+//   })
+//   .catch((e) => console.log(e))
+//   }, 1000)
+// }, [])
 
-// console.log(blogPosts)
+// // console.log(blogPosts)
 
-// function to add post
-function addPost(post){
-  // adding new post using fetch
-  console.log(String(blogPosts.length + 1))
+// // function to add post
+// function addPost(post){
+//   // adding new post using fetch
+//   console.log(String(blogPosts.length + 1))
 
-  fetch(BASE_URL,{
-    method : "POST",
-    headers: {
-      "Content-Type" : "application/json"
-    },
-    body: JSON.stringify(post)
-  })
-  .then((res) => res.json())
-  .then(data => {setBlogPosts([{...post, id: String(blogPosts.length + 1)}, ...blogPosts])})
-  .catch(e => console.log(e)) 
-}
+//   fetch(BASE_URL,{
+//     method : "POST",
+//     headers: {
+//       "Content-Type" : "application/json"
+//     },
+//     body: JSON.stringify(post)
+//   })
+//   .then((res) => res.json())
+//   .then(data => {setBlogPosts([post, ...blogPosts])})
+//   .catch(e => console.log(e)) 
+// }
 
 
 if(isloading){
@@ -75,8 +77,8 @@ if(isloading){
   return (
     <>
     <Navbar/>
-    <AddBlogForm addPost = {addPost} blogPosts = {blogPosts}/>
-    <BlogList blogPosts = {blogPosts}/>
+    <AddBlogForm />
+    <BlogList/>
     <Footer/>
 
      
